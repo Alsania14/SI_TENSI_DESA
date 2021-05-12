@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer"
+    ;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header{
+    grid-area: header;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 70px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.content{
+    grid-area: content;
+    display: block;
+}
+
+.sidenav{
+    width: 200px;
+    height: 100%;
+}
