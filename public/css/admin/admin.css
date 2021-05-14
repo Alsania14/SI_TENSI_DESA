@@ -1,0 +1,61 @@
+.admin-content-wrapper{
+    display: grid;
+    grid-template-areas: 
+        "map data"
+        "map form"
+    ;
+    grid-template-columns: 50% auto;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.map-wrapper{
+    grid-area: map;
+    height: 100%;
+    position: relative;
+}
+
+.map-wrapper .card{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#map{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.data{
+    grid-area: data;
+    position: relative;
+    overflow: auto;
+}
+
+.data .table {
+    position: absolute;
+}
+
+.form{
+    grid-area: form;
+}
+
+/* MOBILE SCREEN */
+@media only screen and (max-width: 600px){
+    .admin-content-wrapper{
+        grid-template-areas: 
+            "map"
+            "data"
+            "form"
+        ;
+        min-height: 700px;
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 25% 25%;
+    }
+}

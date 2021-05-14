@@ -12,69 +12,74 @@
     <link href="{{ asset('mdb4/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
+    @yield('topsource')
+    @livewireStyles
 </head>
-<body>
+<body class="bg-white">
+    <!-- MODAL SECTION -->
+    @stack('modal_section')
+    <!-- END MODAL SECTION -->
     <!-- BODY -->
 
     <!-- WRAPPER -->
     <div class="wrapper">
 
         <!-- HEADER -->
-        <header class="bg-primary text-white shadow" id="title">
-            <h6 class="ml-3 mt-2">{{ Config('app.name') }}</h6>
-        </header>
+        <div class="header bg-primary text-white shadow" id="title">
+            <div class="title w-25 text-center m-2">
+                {{ Config('app.name') }}
+            </div>
+        </div>
         <!-- END HEADER -->
 
         <!-- CONTENT -->
-        <div class="content">      
+        <div class="content">
+            
             <!-- SIDE BAR -->
-            <div class="sidenav bg-primary">
-                <!--Navbar-->
-                <nav class="navbar pt-4 navbar-dark bg-primary">
-
-                <!-- Navbar brand -->
-                <a class="w-100 mb-1 p-0 navbar-brand text-white navbar-toggler toggler-example" href="#" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
-                    aria-label="Toggle navigation">Data Desa</a>
-
-                <!-- Collapsible content -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-
-                    <!-- Links -->
-                    <ul class="navbar-nav mr-auto mt-3 ">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Nama</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Atur Polygon</a>
-                        </li>
-                    </ul>
-                    <!-- Links -->
-                   
-                </div>
-                <!-- Collapsible content -->
+            <div class="sidenav bg-primary text-nowrap" id="sidenav">
                 
+                    <!--Navbar-->
+                    <nav id="sidebar">
+                        <div class="sidebar-header mb-3">
+                            <h3 class="text-center text-white font-weight-bold text-nowrap w-100">@yield('page')</h3>
+                        </div>
 
-                </nav>
-                <!--.Navbar-->
+                        <p class="text-center text-white mb-5 text-nowrap">Sistem Informasi Potensi Desa</p>
+                        
+                        @yield('sidebar')
 
+                    </nav>
+                    <!--.Navbar-->
             </div>
             <!-- END SIDENAV -->
+
+            <!-- MAIN -->
+            <div class="main">
+                @yield('main')
+            </div>
+            <!-- END MAIN -->
+        
         </div>
         <!-- END CONTENT -->
 
+        <div class="footer bg-primary">
+            <div>
+                <h6 class="text-white text-center">I Putu Alin Winata Gotama | 1805551029</h6>
+            </div>
+        </div>
+
     </div>
     <!-- END WRAPPER -->
-        
     
-    <!-- END BODY -->
-    <!-- BOOTSTRAP MIN JS -->
-    <script type="text/javascript" src="{{ asset('css/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('css/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('css/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('css/mdb.min.js') }}"></script>
-
+    <!-- SCRIPT -->
+    <script type="text/javascript" src="{{ asset('mdb4/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('mdb4/js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('mdb4/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('mdb4/js/mdb.min.js') }}"></script>
+    @yield('bottomsource')
+    @livewireScripts
+    @stack('bottomlivewirescripts')
+<!-- END BODY -->
 </body>
     
 </html>
